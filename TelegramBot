@@ -35,7 +35,7 @@ class BotHandler:
         return last_update
 
 
-token = '<YourToken>' #Token of your bot
+token = 'YourToken' #Token of your bot
 magnito_bot = BotHandler(token) #Your bot's name
 
 
