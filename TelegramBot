@@ -1,7 +1,11 @@
-# -*- coding: UTF8 -*-
 import requests
 import datetime
+import random
 
+greetings=['hola','Hola','hey','Hey','Hello','hello','hi','Hi','hai','Hai']
+random_greeting = random.choice(greetings)
+question = ['How are you?','how are you?','How are you doing?','how are you doing?']
+ques = ['What can you do?']
 
 
 class BotHandler:
@@ -35,7 +39,7 @@ class BotHandler:
         return last_update
 
 
-token = 'YourToken' #Token of your bot
+token = token #Token of your bot
 magnito_bot = BotHandler(token) #Your bot's name
 
 
@@ -64,17 +68,39 @@ def main():
                     first_chat_name = current_update['message']['from']['first_name']
                 else:
                     first_chat_name = "unknown"
-
-                if first_chat_text == 'Hi':
-                    magnito_bot.send_message(first_chat_id, 'Morning ' + first_chat_name)
+                if first_chat_text in greetings:
+                    magnito_bot.send_message(first_chat_id,random_greeting+" "+ first_chat_name)
                     new_offset = first_update_id + 1
-                else:
-                    magnito_bot.send_message(first_chat_id, 'How are you doing '+first_chat_name)
+                elif first_chat_text in question:
+                    magnito_bot.send_message(first_chat_id,'Yeah I am doing great !! ')
                     new_offset = first_update_id + 1
-
+                elif first_chat_text in ques:
+                    magnito_bot.send_message(first_chat_id,'I can crack a joke ,I can tell your name,I can tell me name,I can tell name of few great movies,I can tell few good books ')
+                    new_offset = first_update_id + 1
+                elif first_chat_text == 'Tell me a Joke':
+                    magnito_bot.send_message(first_chat_id,'Once there were three turtles. One day they decided to go on a picnic. When they got there, they realized they had forgotten the soda. The youngest turtle said he would go home and get it if they would not eat the sandwiches until he got back. A week went by, then a month, finally a year, when the two turtles said,"oh, come on, let us eat the sandwiches." Suddenly the little turtle popped up from behind a rock and said, "If you do, I will not go!" ')
+                    new_offset = first_update_id + 1
+                elif first_chat_text == 'What is my name?':
+                    magnito_bot.send_message(first_chat_id,'Your name is '+" "+first_chat_name)
+                    new_offset = first_update_id + 1
+                elif first_chat_text == 'What is your name?':
+                    magnito_bot.send_message(first_chat_id,'My name is SWORD')
+                    new_offset = first_update_id + 1
+                elif first_chat_text == 'Tell me few good movies':
+                    magnito_bot.send_message(first_chat_id,'The Godfather,The Shawshank Redemption,Pulp Fiction,Star wars,Dark Knight are few of the very good movies')
+                    new_offset = first_update_id + 1
+                elif first_chat_text == 'Tell me few good books':
+                    magnito_bot.send_message(first_chat_id,'White Tiger,The Great Indian Novel ,Train to Pakistan,Palace of Illusions,The Guide,The God of Small Things are few best books of Indian Authors')
+                    new_offset = first_update_id + 1
+                elif first_chat_text == 'Bye':
+                    magnito_bot.send_message(first_chat_id,'Bye!! It was fun interacting with you')
+                    new_offset = first_update_id + 1
+                
+							
+				
 
 if __name__ == '__main__':
     try:
         main()
     except KeyboardInterrupt:
-        exit()
+							exit()
