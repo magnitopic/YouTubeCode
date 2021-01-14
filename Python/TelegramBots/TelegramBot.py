@@ -1,11 +1,6 @@
 # -*- coding: UTF8 -*-
 import requests
-import datetime
-
-
-
-class BotHandler:
-    def __init__(self, token):
+import 
             self.token = token
             self.api_url = "https://api.telegram.org/bot{}/".format(token)
 
