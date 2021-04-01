@@ -24,14 +24,14 @@ function checkStatus(){
         link.href = './css/dark.css';                   //since it's true we load the dark theme CSS
     }else{
         check.checked = false;                          //the checkbox is unchecked
-        link.href = './css/light.css';                  //we load the light theme CSS
+        link.href = '';
     }
 }
 
 function changeStatus(){                                //This function gets called every time the checkbox is clicked
     if (localStorage.getItem('darkMode')==="true"){     //if darkMode was active and this function is called it means the user now wants light
         localStorage.setItem('darkMode', "false");      //so we set it to false, to indicate we are in light mode
-        link.href = './css/light.css';                  //and change the CSS accordingly
+        link.href = '';
     } else{
         localStorage.setItem('darkMode', "true");       //same code but adapted for dark theme
         link.href = './css/dark.css';
