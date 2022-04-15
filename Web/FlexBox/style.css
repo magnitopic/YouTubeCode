@@ -1,0 +1,27 @@
+* {
+	margin: 0;
+}
+
+.space {
+	height: 10rem;
+	width: 10rem;
+}
+
+#red {
+	background-color: red;
+}
+
+#green {
+	background-color: green;
+}
+
+#blue {
+	background-color: blue;
+}
+
+#main {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: rgb(64, 220, 225);
+}
